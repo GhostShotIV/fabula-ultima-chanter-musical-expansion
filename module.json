@@ -1,6 +1,7 @@
 {
   "id": "fabula-ultima-chanter-musical-expansion",
   "title": "Fabula Ultima Chanter Musical Expansion",
+  "description": "Adds musical support for the Chanter class in Fabula Ultima. Play custom songs from a playlist when performing chants, with song titles configurable per Key and Tone/Tune.",
   "version": "1.0.0",
   "compatibility": {
     "minimum": "12",
@@ -39,6 +40,10 @@
     { "lang": "pt_BR", "name": "Português (Brasil)", "path": "lang/pt_BR.json" },
     { "lang": "ru", "name": "Русский", "path": "lang/ru.json" }
   ],
+  "url": "https://github.com/GhostShotIV/fabula-ultima-chanter-musical-expansion",
+  "manifest": "https://github.com/GhostShotIV/fabula-ultima-chanter-musical-expansion/releases/latest/download/module.json",
+  "download": "https://github.com/GhostShotIV/fabula-ultima-chanter-musical-expansion/releases/latest/download/fabula-ultima-chanter-musical-expansion.zip",
+  "bugs": "https://github.com/GhostShotIV/fabula-ultima-chanter-musical-expansion/issues",
   "esmodules": [],
   "socket": false
 }
