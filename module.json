@@ -1,0 +1,44 @@
+{
+  "id": "fabula-ultima-chanter-musical-expansion",
+  "title": "Fabula Ultima Chanter Musical Expansion",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "projectfu",
+        "type": "system",
+        "compatibility": {}
+      }
+    ]
+  },
+  "authors": [
+    {
+      "name": "GhostShotIV",
+      "email": "ghostshotiv@gmail.com",
+      "discord": "GhosShotIV",
+      "flags": {}
+    }
+  ],
+  "scripts": [
+    "scripts/chanter-musical.js"
+  ],
+  "styles": [],
+  "packs": [],
+  "languages": [
+    { "lang": "en", "name": "English", "path": "lang/en.json" },
+    { "lang": "de", "name": "Deutsch", "path": "lang/de.json" },
+    { "lang": "cn", "name": "中文", "path": "lang/cn.json" },
+    { "lang": "es", "name": "Español", "path": "lang/es.json" },
+    { "lang": "fr", "name": "Français", "path": "lang/fr.json" },
+    { "lang": "it", "name": "Italiano", "path": "lang/it.json" },
+    { "lang": "pl", "name": "Polski", "path": "lang/pl.json" },
+    { "lang": "pt_BR", "name": "Português (Brasil)", "path": "lang/pt_BR.json" },
+    { "lang": "ru", "name": "Русский", "path": "lang/ru.json" }
+  ],
+  "esmodules": [],
+  "socket": false
+}
