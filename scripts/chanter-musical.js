@@ -17,19 +17,19 @@ function insertSongFields(app, html) {
 
   // Tone/Tune fields with localization keys
   const songFields = [
-    { label: game.i18n.localize("FU.ChanterCalmTone"), flag: "calmToneSong" },
-    { label: game.i18n.localize("FU.ChanterEnergeticTone"), flag: "energeticToneSong" },
-    { label: game.i18n.localize("FU.ChanterFranticTone"), flag: "franticToneSong" },
-    { label: game.i18n.localize("FU.ChanterHauntingTune"), flag: "hauntingTuneSong" },
-    { label: game.i18n.localize("FU.ChanterLivelyTone"), flag: "livelyToneSong" },
-    { label: game.i18n.localize("FU.ChanterMenacingTone"), flag: "menacingToneSong" },
-    { label: game.i18n.localize("FU.ChanterSolemnTone"), flag: "solemnToneSong" }
+    { label: game.i18n.localize("FU.ChanterExpansionCalmTone"), flag: "calmToneSong" },
+    { label: game.i18n.localize("FU.ChanterExpansionEnergeticTone"), flag: "energeticToneSong" },
+    { label: game.i18n.localize("FU.ChanterExpansionFranticTone"), flag: "franticToneSong" },
+    { label: game.i18n.localize("FU.ChanterExpansionHauntingTune"), flag: "hauntingTuneSong" },
+    { label: game.i18n.localize("FU.ChanterExpansionLivelyTone"), flag: "livelyToneSong" },
+    { label: game.i18n.localize("FU.ChanterExpansionMenacingTone"), flag: "menacingToneSong" },
+    { label: game.i18n.localize("FU.ChanterExpansionSolemnTone"), flag: "solemnToneSong" }
   ];
 
   // Build input block for song fields
   let inputBlock = `
     <div class="resource-content flexcol gap-5">
-      <div class="resource-label-l" style="font-weight:bold; margin-bottom:4px;">${game.i18n.localize("FU.ChanterSongTitleHeader")}</div>
+      <div class="resource-label-l" style="font-weight:bold; margin-bottom:4px;">${game.i18n.localize("FU.ChanterExpansionSongTitleHeader")}</div>
   `;
   songFields.forEach(field => {
     const value = app.item.getFlag("fabula-ultima-chanter-musical-expansion", field.flag) || "";
@@ -63,7 +63,7 @@ function insertPlaylistFieldForChanterClass(app, html) {
   const playlistValue = app.item.getFlag("fabula-ultima-chanter-musical-expansion", "playlist") || "";
   const playlistInput = `
     <div class="resource-content flexcol flex-group-start">
-      <label class="resource-label-m">${game.i18n.localize("FU.ChanterPlaylistTitle")}</label>
+      <label class="resource-label-m">${game.i18n.localize("FU.ChanterExpansionPlaylistTitle")}</label>
       <input type="text" name="flags.fabula-ultima-chanter-musical-expansion.playlist" value="${playlistValue}" class="resource-inputs select-dropdown-l">
     </div>
   `;
@@ -80,8 +80,26 @@ Hooks.on("renderItemSheet", (app, html, data) => {
   }
 });
 
+function getVolumeModeFromMsg(msg) {
+  // Config aus den Flags
+  const config = msg.flags?.projectfu?.Item?.config || {};
+
+  // HTML parsen, data-amount auslesen
+  const html = $(msg.content);
+  const dataAmount = Number(html.find("[data-action='applyResourceLoss']").data("amount"));
+
+  // Modus ermitteln durch Vergleich
+  let mode = null;
+  if (dataAmount === config.low) mode = "low";
+  else if (dataAmount === config.medium) mode = "medium";
+  else if (dataAmount === config.high) mode = "high";
+
+  return { mode, amount: dataAmount };
+}
+
 // Play the correct song from the playlist when a chat message is created
 Hooks.on("createChatMessage", async (msg) => {
+  if (!game.settings.get("fabula-ultima-chanter-musical-expansion", "enabled")) return;
   if (!msg.flags?.projectfu?.Item?.key || !msg.flags?.projectfu?.Item?.tone) return;
 
   const actor = game.actors.get(msg.speaker.actor);
@@ -127,7 +145,69 @@ Hooks.on("createChatMessage", async (msg) => {
   }
 
   if (!songTitle) return;
+  // Determine the volume mode from the chat message
+  debugger;
+  const volumeMode = getVolumeModeFromMsg(msg);
+  if (!volumeMode.mode) return;
 
   const track = playlist.sounds.find(s => s.name === songTitle);
-  if (track) playlist.playSound(track);
+  
+  const volume = game.settings.get("fabula-ultima-chanter-musical-expansion", `${volumeMode.mode}Volume`) / 100;
+  
+  if (track) {
+    AudioHelper.play({src: track.path, volume, autoplay: true, loop: false}, true);
+  }
+});
+
+Hooks.once("init", () => {
+  game.settings.register("fabula-ultima-chanter-musical-expansion", "enabled", {
+    name: game.i18n.localize("FU.ChanterExpansionEnable"),
+    hint: game.i18n.localize("FU.ChanterExpansionEnableHint"),
+    scope: "client",
+    config: true,
+    type: Boolean,
+    default: true
+  });
+
+  game.settings.register("fabula-ultima-chanter-musical-expansion", "lowVolume", {
+    name: game.i18n.localize("FU.ChanterExpansionVolumeLow"),
+    hint: game.i18n.localize("FU.ChanterExpansionVolumeLowHint"),
+    scope: "client",
+    config: true,
+    type: Number,
+    default: 33,
+    range: {
+      min: 0,
+      max: 100,
+      step: 1
+    }
+  });
+
+  game.settings.register("fabula-ultima-chanter-musical-expansion", "mediumVolume", {
+    name: game.i18n.localize("FU.ChanterExpansionVolumeMedium"),
+    hint: game.i18n.localize("FU.ChanterExpansionVolumeMediumHint"),
+    scope: "client",
+    config: true,
+    type: Number,
+    default: 66,
+    range: {
+      min: 0,
+      max: 100,
+      step: 1
+    }
+  });
+
+  game.settings.register("fabula-ultima-chanter-musical-expansion", "highVolume", {
+    name: game.i18n.localize("FU.ChanterExpansionVolumeHigh"),
+    hint: game.i18n.localize("FU.ChanterExpansionVolumeHighHint"),
+    scope: "client",
+    config: true,
+    type: Number,
+    default: 100,
+    range: {
+      min: 0,
+      max: 100,
+      step: 1
+    }
+  });
 });
