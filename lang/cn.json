@@ -6,7 +6,7 @@
   "FU.ChanterExpansionLivelyTone": "Lively Tone",
   "FU.ChanterExpansionMenacingTone": "Menacing Tone",
   "FU.ChanterExpansionSolemnTone": "Solemn Tone",
-  "FU.ChanterExpansionSongTitleHeader": "歌曲标题",
+  "FU.ChanterExpansionSongTitleHeader": "歌曲标题 - 输入配置的播放列表中的歌曲标题或从文件选择器中选择文件。",
   "FU.ChanterExpansionPlaylistTitle": "播放列表标题",
   "FU.ChanterExpansionRitualsLabel": "Rituals",
   "FU.ChanterExpansionVolumeLow": "低音量",
@@ -16,5 +16,6 @@
   "FU.ChanterExpansionVolumeMediumHint": "中音量歌曲的音量",
   "FU.ChanterExpansionVolumeHighHint": "高音量歌曲的音量",
   "FU.ChanterExpansionEnable": "启用吟唱者音乐扩展",
-  "FU.ChanterExpansionEnableHint": "启用或禁用吟唱者音乐扩展功能"
+  "FU.ChanterExpansionEnableHint": "启用或禁用吟唱者音乐扩展功能",
+  "FU.ChanterExpansionPlaylistHint": "仅在您要使用播放列表中的曲目时才需要。"
 }

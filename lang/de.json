@@ -6,7 +6,7 @@
   "FU.ChanterExpansionLivelyTone": "Lively Tone",
   "FU.ChanterExpansionMenacingTone": "Menacing Tone",
   "FU.ChanterExpansionSolemnTone": "Solemn Tone",
-  "FU.ChanterExpansionSongTitleHeader": "Liedtitel",
+  "FU.ChanterExpansionSongTitleHeader": "Songtitel – Entweder einen Titel aus der konfigurierten Playlist eingeben oder eine Datei über den Dateiauswahldialog auswählen.",
   "FU.ChanterExpansionPlaylistTitle": "Playlist Titel",
   "FU.ChanterExpansionRitualsLabel": "Rituals",
   "FU.ChanterExpansionVolumeLow": "Niedrige Lautstärke",
@@ -16,5 +16,6 @@
   "FU.ChanterExpansionVolumeMediumHint": "Lautstärke für Lieder mit mittlerer Lautstärke",
   "FU.ChanterExpansionVolumeHighHint": "Lautstärke für Lieder mit hoher Lautstärke",
   "FU.ChanterExpansionEnable": "Chanter Musical Expansion aktivieren",
-  "FU.ChanterExpansionEnableHint": "Aktiviert oder deaktiviert die Funktionen der Chanter Musical Expansion"
+  "FU.ChanterExpansionEnableHint": "Aktiviert oder deaktiviert die Funktionen der Chanter Musical Expansion",
+  "FU.ChanterExpansionPlaylistHint": "Nur erforderlich, wenn du Titel aus einer Playlist verwenden möchtest."
 }

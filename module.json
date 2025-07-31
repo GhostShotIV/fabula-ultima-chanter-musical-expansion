@@ -27,7 +27,9 @@
   "scripts": [
     "scripts/chanter-musical.js"
   ],
-  "styles": [],
+  "styles": [
+    "style/chanter-musical.css"
+  ],
   "packs": [],
   "languages": [
     { "lang": "en", "name": "English", "path": "lang/en.json" },

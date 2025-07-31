@@ -6,7 +6,7 @@
   "FU.ChanterExpansionLivelyTone": "Lively Tone",
   "FU.ChanterExpansionMenacingTone": "Menacing Tone",
   "FU.ChanterExpansionSolemnTone": "Solemn Tone",
-  "FU.ChanterExpansionSongTitleHeader": "Song Title",
+  "FU.ChanterExpansionSongTitleHeader": "Song Title - Either enter a song title from the configured playlist or select a file from the file picker.",
   "FU.ChanterExpansionPlaylistTitle": "Playlist Title",
   "FU.ChanterExpansionRitualsLabel": "Rituals",
   "FU.ChanterExpansionVolumeLow": "Low Volume",
@@ -16,5 +16,6 @@
   "FU.ChanterExpansionVolumeMediumHint": "Volume for medium volume songs",
   "FU.ChanterExpansionVolumeHighHint": "Volume for high volume songs",
   "FU.ChanterExpansionEnable": "Enable Chanter Musical Expansion",
-  "FU.ChanterExpansionEnableHint": "Enable or disable the Chanter Musical Expansion features"
+  "FU.ChanterExpansionEnableHint": "Enable or disable the Chanter Musical Expansion features",
+  "FU.ChanterExpansionPlaylistHint": "Only needed if you want to use tracks from a playlist."
 }

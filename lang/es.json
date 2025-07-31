@@ -6,7 +6,7 @@
   "FU.ChanterExpansionLivelyTone": "Lively Tone",
   "FU.ChanterExpansionMenacingTone": "Menacing Tone",
   "FU.ChanterExpansionSolemnTone": "Solemn Tone",
-  "FU.ChanterExpansionSongTitleHeader": "Título de la Canción",
+  "FU.ChanterExpansionSongTitleHeader": "Título de la canción: ingresa un título de la lista de reproducción configurada o selecciona un archivo desde el selector de archivos.",
   "FU.ChanterExpansionPlaylistTitle": "Título de la Lista",
   "FU.ChanterExpansionRitualsLabel": "Rituals",
   "FU.ChanterExpansionVolumeLow": "Volumen bajo",
@@ -16,5 +16,6 @@
   "FU.ChanterExpansionVolumeMediumHint": "Volumen para canciones de volumen medio",
   "FU.ChanterExpansionVolumeHighHint": "Volumen para canciones de volumen alto",
   "FU.ChanterExpansionEnable": "Habilitar expansión musical de Chanter",
-  "FU.ChanterExpansionEnableHint": "Habilita o deshabilita las funciones de la expansión musical de Chanter"
+  "FU.ChanterExpansionEnableHint": "Habilita o deshabilita las funciones de la expansión musical de Chanter",
+  "FU.ChanterExpansionPlaylistHint": "Solo necesario si deseas usar pistas de una lista de reproducción."
 }

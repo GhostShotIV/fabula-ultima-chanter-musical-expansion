@@ -6,7 +6,7 @@
   "FU.ChanterExpansionLivelyTone": "Lively Tone",
   "FU.ChanterExpansionMenacingTone": "Menacing Tone",
   "FU.ChanterExpansionSolemnTone": "Solemn Tone",
-  "FU.ChanterExpansionSongTitleHeader": "Название песни",
+  "FU.ChanterExpansionSongTitleHeader": "Название песни — введите название из настроенного плейлиста или выберите файл через проводник файлов.",
   "FU.ChanterExpansionPlaylistTitle": "Название плейлиста",
   "FU.ChanterExpansionRitualsLabel": "Rituals",
   "FU.ChanterExpansionVolumeLow": "Низкая громкость",
@@ -16,5 +16,6 @@
   "FU.ChanterExpansionVolumeMediumHint": "Громкость для песен со средней громкостью",
   "FU.ChanterExpansionVolumeHighHint": "Громкость для песен с высокой громкостью",
   "FU.ChanterExpansionEnable": "Включить музыкальное расширение Chanter",
-  "FU.ChanterExpansionEnableHint": "Включает или отключает функции музыкального расширения Chanter"
+  "FU.ChanterExpansionEnableHint": "Включает или отключает функции музыкального расширения Chanter",
+  "FU.ChanterExpansionPlaylistHint": "Требуется только в том случае, если вы хотите использовать треки из плейлиста."
 }

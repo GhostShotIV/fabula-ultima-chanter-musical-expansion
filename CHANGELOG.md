@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.0] - 2025-07-31
+
+### Added
+
+- Directly select music, instead of using a playlist. Playlist still works.
+
 ## [1.1.0] - 2025-07-30
 
 ### Added

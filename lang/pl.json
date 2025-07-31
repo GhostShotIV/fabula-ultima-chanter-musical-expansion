@@ -6,7 +6,7 @@
   "FU.ChanterExpansionLivelyTone": "Lively Tone",
   "FU.ChanterExpansionMenacingTone": "Menacing Tone",
   "FU.ChanterExpansionSolemnTone": "Solemn Tone",
-  "FU.ChanterExpansionSongTitleHeader": "Tytuł Piosenki",
+  "FU.ChanterExpansionSongTitleHeader": "Tytuł utworu – Wprowadź tytuł z skonfigurowanej listy odtwarzania lub wybierz plik z przeglądarki plików.",
   "FU.ChanterExpansionPlaylistTitle": "Tytuł Playlisty",
   "FU.ChanterExpansionRitualsLabel": "Rituals",
   "FU.ChanterExpansionVolumeLow": "Niska głośność",
@@ -16,5 +16,6 @@
   "FU.ChanterExpansionVolumeMediumHint": "Głośność dla utworów o średniej głośności",
   "FU.ChanterExpansionVolumeHighHint": "Głośność dla utworów o wysokiej głośności",
   "FU.ChanterExpansionEnable": "Włącz rozszerzenie muzyczne Chanter",
-  "FU.ChanterExpansionEnableHint": "Włącza lub wyłącza funkcje rozszerzenia muzycznego Chanter"
+  "FU.ChanterExpansionEnableHint": "Włącza lub wyłącza funkcje rozszerzenia muzycznego Chanter",
+  "FU.ChanterExpansionPlaylistHint": "Wymagane tylko, jeśli chcesz używać utworów z playlisty."
 }

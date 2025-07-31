@@ -1,0 +1,29 @@
+.flexrow.align-center {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 5px; /* etwas Abstand zwischen Elementen */
+}
+
+/* Label nimmt nur den Platz des Textes */
+.flexrow.align-center label.resource-label-m {
+  flex: 0 0 auto; 
+  min-width: auto;
+}
+
+/* Button nimmt nur seine eigene Größe */
+.flexrow.align-center .file-picker-button {
+  flex: 0 0 auto;
+  padding: 0 6px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+/* Input füllt den gesamten restlichen Platz */
+.flexrow.align-center input.resource-inputs {
+  flex: 1 1 auto;
+  min-width: 0;
+}

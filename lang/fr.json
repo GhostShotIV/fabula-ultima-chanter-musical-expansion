@@ -6,7 +6,7 @@
   "FU.ChanterExpansionLivelyTone": "Lively Tone",
   "FU.ChanterExpansionMenacingTone": "Menacing Tone",
   "FU.ChanterExpansionSolemnTone": "Solemn Tone",
-  "FU.ChanterExpansionSongTitleHeader": "Titre de la Chanson",
+  "FU.ChanterExpansionSongTitleHeader": "Titre de la chanson – Entrez un titre de la playlist configurée ou sélectionnez un fichier à partir du sélecteur de fichiers.",
   "FU.ChanterExpansionPlaylistTitle": "Titre de la Playlist",
   "FU.ChanterExpansionRitualsLabel": "Rituals",
   "FU.ChanterExpansionVolumeLow": "Volume faible",
@@ -16,5 +16,6 @@
   "FU.ChanterExpansionVolumeMediumHint": "Volume pour les chansons à volume moyen",
   "FU.ChanterExpansionVolumeHighHint": "Volume pour les chansons à volume élevé",
   "FU.ChanterExpansionEnable": "Activer l'extension musicale du Chanter",
-  "FU.ChanterExpansionEnableHint": "Active ou désactive les fonctionnalités de l'extension musicale du Chanter"
+  "FU.ChanterExpansionEnableHint": "Active ou désactive les fonctionnalités de l'extension musicale du Chanter",
+  "FU.ChanterExpansionPlaylistHint": "Nécessaire uniquement si vous souhaitez utiliser des pistes d'une playlist."
 }
