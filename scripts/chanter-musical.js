@@ -254,26 +254,24 @@ Hooks.on("createChatMessage", async (msg) => {
 
   let trackPath = null;
   
-  if (await fileExists(songTitle)) {
-    trackPath = songTitle;
-  }
-  else {
-    const chanterClass = actor.items.find(
-      (i) => i.type === "class" && i.system?.fuid === "chanter"
-    );
-    const playlistName = chanterClass?.getFlag(
-      "fabula-ultima-chanter-musical-expansion",
-      "playlist"
-    );
-    if (!playlistName) return;
-  
+  const chanterClass = actor.items.find(
+    (i) => i.type === "class" && i.system?.fuid === "chanter"
+  );
+  const playlistName = chanterClass?.getFlag(
+    "fabula-ultima-chanter-musical-expansion",
+    "playlist"
+  );
+
+  if (playlistName) {
     const playlist = game.playlists.getName(playlistName);
     if (!playlist) return;
-  
+
     const track = playlist.sounds.find((s) => s.name === songTitle);
     trackPath = track?.path;
+    if (trackPath === null || trackPath === undefined || trackPath === "") {
+      trackPath = songTitle;
+    }
   }
-
   if (trackPath) {
     const AH = foundry?.audio?.AudioHelper ?? AudioHelper;
     AH.play({src: trackPath, volume, autoplay: true, loop: false}, true);
