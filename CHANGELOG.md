@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1] - 2025-08-15
+
+### Fixed
+
+- Check if fileExists triggered song playing. Changed things around to first test
+  for playlist
+
 ## [1.2.0] - 2025-07-31
 
 ### Added
