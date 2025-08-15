@@ -275,10 +275,6 @@ Hooks.on("createChatMessage", async (msg) => {
   if (trackPath) {
     const AH = foundry?.audio?.AudioHelper ?? AudioHelper;
     AH.play({src: trackPath, volume, autoplay: true, loop: false}, true);
-    AH.play(
-      { src: trackPath, volume, autoplay: true, loop: false },
-      true
-    );
   }
 });
 

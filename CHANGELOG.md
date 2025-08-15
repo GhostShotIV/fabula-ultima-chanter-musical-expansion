@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.2] - 2025-08-15
+
+### Fixed
+
+- Removed the duplicate play function...
+
 ## [1.2.1] - 2025-08-15
 
 ### Fixed
