@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.0] - 2025-09-30
+
+### Changed
+
+- Foundry v13 compatibility
+
 ## [1.2.2] - 2025-08-15
 
 ### Fixed
