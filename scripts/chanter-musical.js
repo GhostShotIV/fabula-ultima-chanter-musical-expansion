@@ -177,18 +177,43 @@ async function fileExists(path) {
   }
 }
 
+// Helper: Normalize potential embedded item IDs (like ".Item.mQFeWnDOCb0ZlvvZ") to a plain ID
+function normalizeItemId(value) {
+  if (!value) return null;
+  if (typeof value !== "string") return value;
+  const v = value.trim();
+
+  // /Item.<id>/ pattern
+  let m = v.match(/(?:^|\.)(?:Item|item)\.([A-Za-z0-9]+)/);
+  if (m) return m[1];
+
+  // /Item:<id>/ pattern
+  m = v.match(/(?:Item|item):\s*([A-Za-z0-9]+)/);
+  if (m) return m[1];
+
+  // Fallback: last token after dot, slash, or colon
+  const last = v.split(/[\.:\/]/).pop();
+  return last || v;
+}
+
 // Play the correct song from the playlist when a chat message is created
 Hooks.on("createChatMessage", async (msg) => {
   if (!game.settings.get("fabula-ultima-chanter-musical-expansion", "enabled"))
     return;
   if (!msg.flags?.projectfu?.Item?.key || !msg.flags?.projectfu?.Item?.tone)
     return;
-  debugger;
+
+  // Normalize incoming key/tone references (handles cases like ".Item.<id>")
+  const rawKey = msg.flags.projectfu.Item.key;
+  const rawTone = msg.flags.projectfu.Item.tone;
+  const keyId = normalizeItemId(rawKey);
+  const toneId = normalizeItemId(rawTone);
+
   const actor = game.actors.get(msg.speaker.actor);
   if (!actor) return;
 
-  const keyItem = actor.items.get(msg.flags.projectfu.Item.key);
-  const toneItem = actor.items.get(msg.flags.projectfu.Item.tone);
+  const keyItem = actor.items.get(keyId);
+  const toneItem = actor.items.get(toneId);
   if (!keyItem || !toneItem) return;
 
   // Map tone/tune to the correct song flag
@@ -274,7 +299,17 @@ Hooks.on("createChatMessage", async (msg) => {
   }
   if (trackPath) {
     const AH = foundry?.audio?.AudioHelper ?? AudioHelper;
-    AH.play({src: trackPath, volume, autoplay: true, loop: false}, true);
+
+    // Prevent duplicate playback if the same sound is already playing
+    const players = foundry?.audio?.players ?? {};
+    const isPlaying = Object.values(players).some((p) => {
+      const src = String(p?.src || p?.audio?.src || p?.options?.src || "");
+      return src && src.includes(trackPath);
+    });
+
+    if (!isPlaying) {
+      AH.play({ src: trackPath, volume, autoplay: true, loop: false }, true);
+    }
   }
 });
 

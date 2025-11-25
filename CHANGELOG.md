@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3] - 2025-11-25
+
+### Fixed
+
+- Normalize item ids for key and tone, because system update changed those values
+- Check before playing the song, if it is already playing
+
 ## [1.2.2] - 2025-08-15
 
 ### Fixed
