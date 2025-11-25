@@ -39,7 +39,6 @@
     { "lang": "fr", "name": "Français", "path": "lang/fr.json" },
     { "lang": "it", "name": "Italiano", "path": "lang/it.json" },
     { "lang": "pl", "name": "Polski", "path": "lang/pl.json" },
-    { "lang": "pt_BR", "name": "Português (Brasil)", "path": "lang/pt_BR.json" },
     { "lang": "ru", "name": "Русский", "path": "lang/ru.json" }
   ],
   "url": "https://github.com/GhostShotIV/fabula-ultima-chanter-musical-expansion",
