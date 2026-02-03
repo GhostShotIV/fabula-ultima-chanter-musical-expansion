@@ -2,7 +2,7 @@
   "id": "fabula-ultima-chanter-musical-expansion",
   "title": "Fabula Ultima Chanter Musical Expansion",
   "description": "Adds musical support for the Chanter class in Fabula Ultima. Play custom songs from a playlist when performing chants, with song titles configurable per Key and Tone/Tune.",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "compatibility": {
     "minimum": "12",
     "verified": "13"
