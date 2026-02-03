@@ -44,6 +44,7 @@ function insertSongFieldsV2(app, rootEl) {
 
   for (const field of songFields) {
     const value = app.item.getFlag("fabula-ultima-chanter-musical-expansion", field.flag) ?? "";
+    console.log(`Loaded ${field.flag}: "${value}"`);
     inputBlock += `
       <div class="flexrow align-center">
         <label class="resource-label-m">${field.label}</label>
@@ -73,11 +74,23 @@ function insertSongFieldsV2(app, rootEl) {
       ev.preventDefault();
       const target = btn.dataset.target;
       const input = rootEl.querySelector(`input[name="${target}"]`);
-      const fp = new FilePicker({
+      input.addEventListener("change", () => {
+        console.log(`Input changed for ${target}: "${input.value}"`);
+      });
+      // Kompatibilität mit V12 und V13: Verwende namespaced FilePicker falls verfügbar, sonst global
+      const FilePickerClass = foundry?.applications?.apps?.FilePicker || FilePicker;
+      const fp = new FilePickerClass({
         type: btn.dataset.type || "any",
-        callback: (path) => input && (input.value = path),
+        callback: (path) => {
+          if (input) {
+            input.value = path;
+            input.dispatchEvent(new Event('change', { bubbles: true }));
+            console.log(`File selected for ${target}: "${path}"`);
+          }
+        },
       });
       fp.render(true);
+      console.log(`File picker opened for ${target}`);
     });
   }
 }
@@ -155,6 +168,15 @@ Hooks.on("renderItemSheetV2", (app, element /* HTMLElement */, options) => {
     else if (isChanter) insertPlaylistFieldForChanterClassV2(app, element);
   } catch (err) {
     console.error("Chanter expansion sheet injection failed:", err);
+  }
+});
+
+Hooks.on("updateItem", (item, data, options, userId) => {
+  if (item.type === "classFeature" && item.system?.featureType === "projectfu.key") {
+    console.log("Item updated:", data);
+    if (data.flags?.["fabula-ultima-chanter-musical-expansion"]) {
+      console.log("Flags updated:", data.flags["fabula-ultima-chanter-musical-expansion"]);
+    }
   }
 });
 

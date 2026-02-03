@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.4] - 2026-02-03
+
+### Fixed
+
+- Problem with updating flags because of deprecated file picker
+
 ## [1.2.3] - 2025-11-25
 
 ### Fixed
