@@ -79,8 +79,10 @@ function insertSongFieldsV2(app, rootEl) {
       });
       // Kompatibilität mit V12 und V13: Verwende namespaced FilePicker falls verfügbar, sonst global
       const FilePickerClass = foundry?.applications?.apps?.FilePicker || FilePicker;
+      console.log("Available FilePicker sources:", FilePicker.sources);
       const fp = new FilePickerClass({
         type: btn.dataset.type || "any",
+        sources: Object.keys(FilePicker.sources),  // Explizit alle verfügbaren Quellen aktivieren
         callback: (path) => {
           if (input) {
             input.value = path;
